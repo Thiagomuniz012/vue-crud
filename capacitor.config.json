@@ -1,0 +1,8 @@
+{
+  "appId": "br.unisales.crud",
+  "appName": "vue-crud",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
