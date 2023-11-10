@@ -11,7 +11,7 @@ import InitialPage from './components/InitialPage.vue';
 export default {
   name: 'App',
   components: {
-    InitialPage
+    InitialPage,
   }
 }
 </script>

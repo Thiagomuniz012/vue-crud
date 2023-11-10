@@ -26,19 +26,24 @@
     <form @submit.prevent="salvarProduto">
       <input v-model="produto.nome" class="input-field" placeholder="Nome do produto" required />
       <input v-model="produto.descricao" class="input-field" placeholder="Descrição" required />
-      <input v-model="produto.preco" class="input-field" type="text" placeholder="Preço" required />
+      <input v-model="produto.preco" class="input-field" type="number" placeholder="Preço" required />
       <button type="submit" class="submit-button">{{ modoEdicao ? 'Atualizar' : 'Cadastrar' }}</button>
     </form>
   </div>
 </div>
+<TabMenu />
 
 </template>
 
 <script>
 import Produto from '../components/Produto';
 import db from '../config/db';
+import TabMenu from '../components/TabMenu.vue';
 
 export default {
+  components: {
+    TabMenu
+  },
   data() {
     return {
       produto: new Produto(),
@@ -131,7 +136,7 @@ button:hover {
 }
 .botao-adicao {
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 20px;
   width: 70px;
   height: 70px;
