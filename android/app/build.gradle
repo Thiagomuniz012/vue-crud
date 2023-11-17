@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "br.unisales.crud"
+    namespace "unisales.br"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "br.unisales.crud"
+        applicationId "unisales.br"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

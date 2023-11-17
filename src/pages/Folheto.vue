@@ -1,5 +1,7 @@
 <template>
   <div>
+
+    <h1>Cadastro de Produtos</h1>
     <button @click="abrirModal" class="botao-adicao">+</button>
   
     <div class="modal" v-if="modalAberto">

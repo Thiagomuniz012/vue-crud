@@ -1,6 +1,6 @@
 <template>
     <div class="tab-bar">
-      <router-link to="/" class="tab-item" active-class="active"><i class="fa fa-2x fa-home" style="color:orange"></i></router-link>
+      <router-link to="/Inicial" class="tab-item" active-class="active"><i class="fa fa-2x fa-home" style="color:orange"></i></router-link>
       <router-link to="/Folheto" class="tab-item" active-class="active"><i class="fa fa-2x fa-newspaper-o" style="color:orange"></i></router-link>
       <router-link to="/Carrinho" class="tab-item" active-class="active"><i class="fa fa-2x fa-shopping-cart" style="color:orange"></i></router-link>
       <!-- Adicione mais router-links conforme necessário -->

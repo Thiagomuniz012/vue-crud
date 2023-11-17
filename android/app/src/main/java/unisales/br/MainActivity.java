@@ -1,4 +1,4 @@
-package br.unisales.crud;
+package unisales.br;
 
 import com.getcapacitor.BridgeActivity;
 
