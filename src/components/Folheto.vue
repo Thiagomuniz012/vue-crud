@@ -1,49 +1,43 @@
 <template>
   <div>
-    <h1 align="center">Padaria App</h1>
-
-      <div id="card" v-for="produto in produtos" :key="produto.id">
-    <div class="produto-info">
-      <div>{{ produto.nome }}</div>
-      <div>{{ produto.descricao }}</div>
-      <div>R$: {{ produto.preco }}</div>
-    </div>
-    <div class="botoes">
-      <button @click="editarProduto(produto)" class="editar-button">
-        <i class="fa fa-edit"></i>
-      </button>
-      <button @click="excluirProduto(produto.id)" class="excluir-button">
-        <i class="fa fa-trash"></i>
-      </button>
-    </div>
-  </div>
-    </div>
-
-  <button @click="abrirModal" class="botao-adicao">+</button>
+    <button @click="abrirModal" class="botao-adicao">+</button>
   
     <div class="modal" v-if="modalAberto">
-  <div class="modal-conteudo">
-    <form @submit.prevent="salvarProduto">
-      <input v-model="produto.nome" class="input-field" placeholder="Nome do produto" required />
-      <input v-model="produto.descricao" class="input-field" placeholder="Descrição" required />
-      <input v-model="produto.preco" class="input-field" type="number" placeholder="Preço" required />
-      <button type="submit" class="submit-button">{{ modoEdicao ? 'Atualizar' : 'Cadastrar' }}</button>
-    </form>
+      <div class="modal-conteudo">
+        <button @click="fecharModal" class="closeButton"><i class="fa fa-2x fa-times"></i></button>
+        <form @submit.prevent="salvarProduto">
+          <input v-model="produto.nome" class="input-field" placeholder="Nome do produto" required />
+          <input v-model="produto.descricao" class="input-field" placeholder="Descrição" required />
+          <input v-model.number="produto.preco" class="input-field" type="number" placeholder="Preço" required />
+          <button type="submit" class="submit-button">{{ modoEdicao ? 'Atualizar' : 'Cadastrar' }}</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Lista de produtos -->
+    <div id="card" v-for="produto in produtos" :key="produto.id">
+      <div class="produto-info">
+        <div>{{ produto.nome }}</div>
+        <div>{{ produto.descricao }}</div>
+        <div>R$: {{ produto.preco }}</div>
+      </div>
+      <div class="botoes">
+        <button @click="editarProduto(produto)" class="editar-button">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button @click="excluirProduto(produto.id)" class="excluir-button">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-<TabMenu />
-
 </template>
 
 <script>
 import Produto from '../components/Produto';
 import db from '../config/db';
-import TabMenu from '../components/TabMenu.vue';
 
 export default {
-  components: {
-    TabMenu
-  },
   data() {
     return {
       produto: new Produto(),
@@ -102,10 +96,9 @@ export default {
 };
 </script>
 
-<style>
-@import '~font-awesome/css/font-awesome.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@300&family=Ubuntu&display=swap');
+
+<style>
 *{
   margin: 0;
   padding: 0;
@@ -124,8 +117,8 @@ input:focus {
   outline: none;
 }
 button {
+  background-color: #fff;
   padding: 10px 20px;
-  background-color: #007BFF;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -136,11 +129,11 @@ button:hover {
 }
 .botao-adicao {
   position: fixed;
-  bottom: 60px;
-  right: 20px;
+  bottom: 70px;
+  right: 25px;
   width: 70px;
   height: 70px;
-  background-color: #007BFF;
+  background-color: orange;
   color: #fff;
   border-radius: 50%;
   text-align: center;
@@ -231,5 +224,12 @@ form {
 h1{
   font-family: 'Ubuntu', sans-serif;
   margin: 20px;
+}
+
+.closeButton{
+  color:red;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
 }
 </style>

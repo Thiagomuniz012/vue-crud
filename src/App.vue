@@ -1,19 +1,18 @@
 <template>
-  <div>
-    <InitialPage/>
+  <div id="app">
+    <router-view></router-view>
+    <tab-bar></tab-bar>
   </div>
 </template>
 
 <script>
-
-import InitialPage from './components/InitialPage.vue';
+import TabBar from './components/TabBar.vue';
 
 export default {
-  name: 'App',
   components: {
-    InitialPage,
+    TabBar
   }
-}
+};
 </script>
 
 <style>
