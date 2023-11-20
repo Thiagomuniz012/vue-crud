@@ -16,7 +16,6 @@
       </div>
     </div>
     
-    <!-- Lista de produtos -->
     <div id="card" v-for="produto in produtos" :key="produto.id">
       <div class="produto-info">
         <div>{{ produto.nome }}</div>
@@ -93,7 +92,9 @@ export default {
     },
     fecharModal() {
       this.modalAberto = false;
-    },
+      this.modoEdicao = false;
+      this.produto = {};
+},
   },
 };
 </script>
