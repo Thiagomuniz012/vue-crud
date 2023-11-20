@@ -8,14 +8,14 @@
   import db from '../config/db';
 
   export default {
-    // Lógica do componente
+
     data() {
     return {
-      produtos: [] // Certifique-se de inicializar a variável produtos
+      produtos: []
     };
   },
   mounted() {
-    this.carregarProdutos(); // Chama a função quando o componente é montado
+    this.carregarProdutos();
   },
   methods: {
     carregarProdutos() {
@@ -28,6 +28,6 @@
   </script>
   
   <style>
-  /* Estilos do componente */
+
   </style>
   

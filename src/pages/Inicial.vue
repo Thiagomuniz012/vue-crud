@@ -1,21 +1,31 @@
 <template>
   <div id="comp">
-
-      <h1>Sejam Bem Vindos</h1>
-
-      <h3>Busque por itens</h3>
-    <input type="text" v-model="termoBusca" placeholder="Insira o nome">
+    <h1>Sejam Bem Vindos</h1>
+    <h3>Busque por itens</h3>
+    <div class="search-container">
+      <input type="text" v-model="termoBusca" placeholder="Insira o nome">
+    </div>
 
     <div v-if="resultados.length > 0">
       <div id="card" v-for="produto in resultados" :key="produto.id">
-      <div class="produto-info">
-        <div>{{ produto.nome }}</div>
-        <div>{{ produto.descricao }}</div>
-        <div>R$: {{ produto.preco }}</div>
+        <div class="produto-info">
+          <div>{{ produto.nome }}</div>
+          <div>{{ produto.descricao }}</div>
+          <div>R$: {{ produto.preco }}</div>
+        </div>
       </div>
     </div>
-    </div>
     <p v-else-if="termoBusca && resultados.length === 0">Nenhum resultado encontrado</p>
+
+    <div v-if="!termoBusca || resultados.length === 0">
+      <div id="card" v-for="produto in produtos" :key="produto.id">
+        <div class="produto-info">
+          <div>{{ produto.nome }}</div>
+          <div>{{ produto.descricao }}</div>
+          <div>R$: {{ produto.preco }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -68,7 +78,7 @@ export default {
 input[type="text"] {
   padding: 8px;
   margin-right: 5px;
-  width: 70%; /* Ajuste o tamanho conforme necessário */
+  width: 70%;
 }
 
 p {

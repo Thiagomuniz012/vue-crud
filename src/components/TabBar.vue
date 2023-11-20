@@ -1,15 +1,20 @@
 <template>
     <div class="tab-bar">
       <router-link to="/Inicial" class="tab-item" active-class="active"><i class="fa fa-2x fa-home" style="color:orange"></i></router-link>
-      <router-link to="/Folheto" class="tab-item" active-class="active"><i class="fa fa-2x fa-newspaper-o" style="color:orange"></i></router-link>
+      <router-link v-if="isAdmin" to="/Folheto" class="tab-item" active-class="active"><i class="fa fa-2x fa-newspaper-o" style="color:orange"></i></router-link>
       <router-link to="/Carrinho" class="tab-item" active-class="active"><i class="fa fa-2x fa-shopping-cart" style="color:orange"></i></router-link>
-      <!-- Adicione mais router-links conforme necessário -->
+      <router-link to="/Configuracoes" class="tab-item" active-class="active"><i class="fa fa-2x fa-cog " style="color:orange"></i></router-link>
     </div>
   </template>
 
 <script>
 export default {
-  // Lógica do componente
+  computed: {
+    isAdmin() {
+      const userRole = localStorage.getItem('userRole');
+      return userRole === 'admin';
+    }
+  }
 };
 </script>
 

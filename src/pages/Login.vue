@@ -27,14 +27,22 @@ export default {
   },
   methods: {
     fazerLogin() {
-      if (this.loginData.email === 'email@gmail.com' && this.loginData.senha === '1234') {
+      if (this.loginData.email === 'admin@gmail.com' && this.loginData.senha === '1234') {
+        this.setUserRole('admin');
+        this.$router.push('/Inicial');
+      } else if (this.loginData.email === 'user@gmail.com' && this.loginData.senha === '1234') {
+        this.setUserRole('user');
         this.$router.push('/Inicial');
       } else {
         alert('Credenciais inválidas. Tente novamente.');
       }
+    },
+    setUserRole(role) {
+      localStorage.setItem('userRole', role);
     }
   }
 };
+
 </script>
   
   <style scoped>

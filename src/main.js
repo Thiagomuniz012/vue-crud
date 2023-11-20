@@ -5,6 +5,7 @@ import Inicial from './Pages/Inicial.vue';
 import Folheto from './Pages/Folheto.vue';
 import Carrinho from './Pages/Carrinho.vue';
 import Login from './Pages/Login.vue';
+import Configuracoes from './Pages/Configuracoes.vue';
 import '/node_modules/font-awesome/css/font-awesome.min.css'
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: '/Inicial', component: Inicial },
   { path: '/Folheto', component: Folheto },
   { path: '/Carrinho', component: Carrinho },
+  { path: '/Configuracoes', component: Configuracoes },
 ];
 
 const router = createRouter({
