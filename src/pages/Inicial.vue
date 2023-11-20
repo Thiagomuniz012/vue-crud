@@ -55,7 +55,7 @@ export default {
 <style>
 #comp {
   text-align: center;
-  position: relative; /* Permite o posicionamento absoluto dentro deste elemento */
+  position: relative;
 }
 
 .search-container {

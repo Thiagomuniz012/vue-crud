@@ -93,8 +93,7 @@ export default {
     fecharModal() {
       this.modalAberto = false;
       this.modoEdicao = false;
-      this.produto = {};
-},
+      },
   },
 };
 </script>
@@ -200,7 +199,13 @@ form {
   margin: 10px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
 }
+
+#card:last-child {
+  margin-bottom: 150px;
+}
+
 
 .produto-info {
   flex: 1;
