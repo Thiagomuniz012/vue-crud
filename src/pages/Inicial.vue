@@ -7,9 +7,13 @@
     <input type="text" v-model="termoBusca" placeholder="Insira o nome">
 
     <div v-if="resultados.length > 0">
-      <div v-for="produto in resultados" :key="produto.id">
+      <div id="card" v-for="produto in resultados" :key="produto.id">
+      <div class="produto-info">
         <div>{{ produto.nome }}</div>
+        <div>{{ produto.descricao }}</div>
+        <div>R$: {{ produto.preco }}</div>
       </div>
+    </div>
     </div>
     <p v-else-if="termoBusca && resultados.length === 0">Nenhum resultado encontrado</p>
   </div>
