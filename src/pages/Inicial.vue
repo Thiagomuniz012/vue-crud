@@ -12,6 +12,7 @@
           <div>{{ produto.nome }}</div>
           <div>{{ produto.descricao }}</div>
           <div>R$: {{ produto.preco }}</div>
+          <i class="fa fa-cart-arrow-down" aria-hidden="true" @click="adicionarAoCarrinho(produto)"></i>
         </div>
       </div>
     </div>
@@ -23,6 +24,7 @@
           <div>{{ produto.nome }}</div>
           <div>{{ produto.descricao }}</div>
           <div>R$: {{ produto.preco }}</div>
+          <i class="fa fa-cart-arrow-down" aria-hidden="true" @click="adicionarAoCarrinho(produto)" style="color:green"></i>
         </div>
       </div>
     </div>
@@ -59,9 +61,15 @@ export default {
         this.produtos = produtos;
       });
     },
+    adicionarAoCarrinho(produto) {
+      const carrinho = JSON.parse(localStorage.getItem('produtosNoCarrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('produtosNoCarrinho', JSON.stringify(carrinho));
+    },
   }
 }
 </script>
+
 <style>
 #comp {
   text-align: center;
