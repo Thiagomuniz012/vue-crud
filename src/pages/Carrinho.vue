@@ -29,6 +29,12 @@ export default {
     this.carregarProdutosNoCarrinho();
   },
   methods: {
+    mostrarAlerta() {
+      alert("Seu alerta por 2 segundos!");
+      setTimeout(function() {
+      document.querySelector('.alert').style.display = 'none';
+  }, 2000);
+},
     carregarProdutosNoCarrinho() {
       const produtosCarrinho = JSON.parse(localStorage.getItem('produtosNoCarrinho')) || [];
       this.produtosNoCarrinho = produtosCarrinho;

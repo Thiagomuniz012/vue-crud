@@ -5,7 +5,9 @@
     <div class="search-container">
       <input type="text" v-model="termoBusca" placeholder="Insira o nome">
     </div>
-
+    <div v-if="mensagemAdicionado" id="addAlert">
+      <p>{{ mensagemAdicionado }}</p>
+    </div>
     <div v-if="resultados.length > 0">
       <div id="card" v-for="produto in resultados" :key="produto.id">
         <div class="produto-info">
@@ -26,8 +28,9 @@
           <div>R$: {{ produto.preco }}</div>
           <i class="fa fa-cart-arrow-down" aria-hidden="true" @click="adicionarAoCarrinho(produto)" style="color:green"></i>
         </div>
-      </div>
+      </div> 
     </div>
+
   </div>
 </template>
 
@@ -39,6 +42,7 @@ export default {
     return {
       termoBusca: '',
       produtos: [],
+      mensagemAdicionado: ''
     };
   },
   computed: {
@@ -65,8 +69,15 @@ export default {
       const carrinho = JSON.parse(localStorage.getItem('produtosNoCarrinho')) || [];
       carrinho.push(produto);
       localStorage.setItem('produtosNoCarrinho', JSON.stringify(carrinho));
+
+      this.mensagemAdicionado = `Você adicionou "${produto.nome}" ao carrinho!`;
+
+      setTimeout(() => {
+        this.mensagemAdicionado = '';
+      }, 2000);
     },
   }
+  
 }
 </script>
 
@@ -91,5 +102,9 @@ input[type="text"] {
 
 p {
   color: red;
+}
+
+#addAlert{
+  margin-block: 25px;
 }
 </style>
