@@ -1,4 +1,6 @@
 <template>
+
+    <!-- Tab menu -->
     <div class="tab-bar">
       <router-link to="/Inicial" class="tab-item" active-class="active"><i class="fa fa-2x fa-home" style="color:orange"></i></router-link>
       <router-link v-if="isAdmin" to="/Folheto" class="tab-item" active-class="active"><i class="fa fa-2x fa-newspaper-o" style="color:orange"></i></router-link>
@@ -10,6 +12,8 @@
 <script>
 export default {
   computed: {
+
+    //Verificação se é Admin, apenas Admin pode ver a página de Folheto onde é cadastrado novos produtos
     isAdmin() {
       const userRole = localStorage.getItem('userRole');
       return userRole === 'admin';

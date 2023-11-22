@@ -1,6 +1,7 @@
 <template>
   <div>
 
+    <!-- Página de cadastro de produtos -->
     <h1>Cadastro de Produtos</h1>
     <button @click="abrirModal" class="botao-adicao">+</button>
   
@@ -16,6 +17,7 @@
       </div>
     </div>
     
+    <!-- Mostra os produtos cadastrados junto com o botão de edição e apagar -->
     <div id="card" v-for="produto in produtos" :key="produto.id">
       <div class="produto-info">
         <div>{{ produto.nome }}</div>
@@ -41,6 +43,7 @@ import db from '../config/db';
 export default {
   data() {
     return {
+      //Importa o constructor do Produto
       produto: new Produto(),
       produtos: [],
       modoEdicao: false,
@@ -51,6 +54,7 @@ export default {
     this.carregarProdutos();
   },
   methods: {
+    //Salva um novo produto cadastrado
     salvarProduto() {
     if (this.modoEdicao) {
       db.produtos.update(this.produto.id, {
@@ -71,25 +75,35 @@ export default {
       });
     }
   },
+
+    //Edita o produto cadastrado
     editarProduto(produto) {
       this.produto = { ...produto };
       this.modoEdicao = true;
       this.abrirModal();
     },
+
+    //Exclui um produto cadastrado
     excluirProduto(id) {
       db.produtos.delete(id).then(() => {
         this.carregarProdutos();
       });
     },
+
+    //carrega os produtos cadastrados
     carregarProdutos() {
       db.produtos.toArray().then((produtos) => {
         this.produtos = produtos;
       });
     },
+
+    //Função que abre o modal
     abrirModal() {
       this.modalAberto = true;
       this.novoProduto = new Produto();
     },
+
+    //Função que fecha o modal
     fecharModal() {
       this.modalAberto = false;
       this.modoEdicao = false;

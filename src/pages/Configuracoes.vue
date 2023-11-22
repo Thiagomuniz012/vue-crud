@@ -1,27 +1,16 @@
 <template>
+
+    <!-- Página de configurações com um botão de sair-->
     <div class="sair-cont">
         <router-link to="/" class="sair-conf">Sair</router-link>
     </div>
   </template>
   
   <script>
-  import db from '../config/db';
 
   export default {
     data() {
-    return {
-      produtos: []
-    };
-  },
-  mounted() {
-    this.carregarProdutos();
-  },
-  methods: {
-    carregarProdutos() {
-      db.produtos.toArray().then((produtos) => {
-        this.produtos = produtos;
-      });
-    },
+    
   }
 }
   </script>

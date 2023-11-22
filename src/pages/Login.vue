@@ -1,4 +1,6 @@
 <template>
+
+    <!-- Página inicial com Login-->
     <div class="login-container">
       <form @submit.prevent="fazerLogin" class="login-form">
         <div class="form-group" >
@@ -26,6 +28,8 @@ export default {
     };
   },
   methods: {
+
+    //Lógica de Login para Admin e Usuário
     fazerLogin() {
       if (this.loginData.email === 'admin@gmail.com' && this.loginData.senha === '1234') {
         this.setUserRole('admin');
@@ -37,6 +41,8 @@ export default {
         alert('Credenciais inválidas. Tente novamente.');
       }
     },
+
+    //Guarda no localStorage se é Admin ou User
     setUserRole(role) {
       localStorage.setItem('userRole', role);
     }

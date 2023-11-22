@@ -1,7 +1,10 @@
 <template>
   <div>
+
+    <!-- Página de carrinho -->
     <h1>Seu Carrinho</h1>
 
+    <!-- Mostra os produtos adicionados ao carrinho -->
     <div v-if="produtosNoCarrinho.length > 0">
       <div id="card" v-for="produto in produtosNoCarrinho" :key="produto.id">
         <div class="produto-info">
@@ -29,16 +32,14 @@ export default {
     this.carregarProdutosNoCarrinho();
   },
   methods: {
-    mostrarAlerta() {
-      alert("Seu alerta por 2 segundos!");
-      setTimeout(function() {
-      document.querySelector('.alert').style.display = 'none';
-  }, 2000);
-},
+
+    //Carrega os produtos adicionados ao carrinho pegando do localStorage
     carregarProdutosNoCarrinho() {
       const produtosCarrinho = JSON.parse(localStorage.getItem('produtosNoCarrinho')) || [];
       this.produtosNoCarrinho = produtosCarrinho;
     },
+
+    //Remove os produtos do carrinho
     removerDoCarrinho(produto) {
       this.produtosNoCarrinho = this.produtosNoCarrinho.filter(item => item.id !== produto.id);
       localStorage.setItem('produtosNoCarrinho', JSON.stringify(this.produtosNoCarrinho));

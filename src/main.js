@@ -8,6 +8,8 @@ import Login from './Pages/Login.vue';
 import Configuracoes from './Pages/Configuracoes.vue';
 import '/node_modules/font-awesome/css/font-awesome.min.css'
 
+//Página onde são definidas as rotas
+
 const routes = [
   { path: '/', component: Login },
   { path: '/Inicial', component: Inicial },
